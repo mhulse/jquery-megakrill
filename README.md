@@ -5,7 +5,7 @@
 
 Check out the [demo](http://registerguard.github.com/jquery-megakrill/demo/).
 
-Here's a [complete demo](http://registerguard.github.com/mega-demos/) using the [jQuery MegaWhale plugin](https://github.com/registerguard/jquery-megawhale).
+Here's a [complete demo](http://registerguard.github.com/jquery-mega-demos/) using the [jQuery MegaWhale plugin](https://github.com/registerguard/jquery-megawhale).
 
 Developed by [Micky Hulse](http://hulse.me) for [The Register-Guard](http://www.registerguard.com).
 
