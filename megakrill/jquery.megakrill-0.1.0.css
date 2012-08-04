@@ -152,7 +152,10 @@
 		.demo-a:focus,
 		.demo-a:focus:hover,
 		.demo-a:hover,
-		.demo-a:active { color: #fff; }
+		.demo-a:active {
+			color: #fff;
+			text-decoration: none;
+		}
 		.demo-a:active,
 		.demo-a:focus { outline: none; }
 
@@ -297,13 +300,18 @@ only screen and (max-width: 1319px) and (min-device-pixel-ratio: 1.5) {
 	**--------------------------------------------------------------------------
 	*/
 	
+	/*
+	**----------------------------------
+	** Menu structure:
+	**----------------------------------
+	*/
+	
 	.demo-ul,
 	.demo-li {
 		margin: 0;
 		padding: 0;
 	}
 	.demo-ul {
-		line-height: 1;
 		position: relative;
 		list-style: none;
 		float: left;

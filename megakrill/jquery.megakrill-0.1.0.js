@@ -278,7 +278,7 @@
 					// Remove data from target:
 					//----------------------------------
 					
-					$(this).removeData(constants.NS);
+					$$.removeData(constants.NS);
 					
 				} else {
 					
