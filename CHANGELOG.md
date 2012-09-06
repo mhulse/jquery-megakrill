@@ -8,7 +8,7 @@
 ---
 
 ## v0.1.1
-#### September 06, 2012
+#### September 6, 2012
 
 * Updated retina display media queries.
     * Fixes [issue #1](https://github.com/registerguard/jquery-megakrill/issues/1).
