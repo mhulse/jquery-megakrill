@@ -40,7 +40,7 @@ h1 {
 	top: 0;
 }
 
-@media only screen and (min-width: 1320px) {
+@media only screen and (min-width: 1345px) {
 	
 	h1 {
 		margin: 0 0 10px;
@@ -48,7 +48,7 @@ h1 {
 	}
 	
 	.container {
-		width: 1300px;
+		width: 1320px;
 		margin: 50px auto;
 	}
 	
