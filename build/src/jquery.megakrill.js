@@ -1,15 +1,3 @@
-/**
- * jQuery MegaKrill
- *
- * @author    Micky Hulse
- * @link      http://hulse.me
- * @docs      https://github.com/registerguard/jquery-megakrill
- * @copyright Copyright (c) 2012 Micky Hulse.
- * @license   Dual licensed under the MIT or GPL Version 2 licenses.
- * @version   1.0.0
- * @date      2012/07/09
- */
-
 //----------------------------------
 
 // Notes to self:
@@ -32,6 +20,16 @@
 
 ;(function($) {
 	
+	'use strict';
+	
+	//--------------------------------------------------------------------------
+	//
+	// Globals:
+	//
+	//--------------------------------------------------------------------------
+	
+	var console = window.console || { log : function() {}, warn : function() {} }, // Javascript console.
+	
 	//--------------------------------------------------------------------------
 	//
 	// Constants:
@@ -46,11 +44,10 @@
 	 * @const
 	 */
 	
-	var constants = {
+	constants = {
 		
-		C      : ((typeof console !== 'undefined') ? true : false), // Check if the javascript console is available.
-		NS     : 'megakrill',                                       // Namespace identifier.
-		PREFIX : 'mk'                                               // Class prefix.
+		NS     : 'megakrill', // Namespace identifier.
+		PREFIX : 'mk'         // Class prefix.
 		
 	}, // constants
 	
@@ -89,9 +86,12 @@
 				// Local variable(s):
 				//----------------------------------
 				
-				var $this = $(this),                                                            // Target object.
-				data      = $this.data(constants.NS),                                           // Namespace instance data.
-				options   = $.extend({}, settings.external, $.fn[constants.NS].defaults, opts); // Merge settings, defaults and options.
+				var $this   = $(this),                                                            // Target object.
+				    data    = $this.data(constants.NS),                                           // Namespace instance data.
+				    options = $.extend({}, settings.external, $.fn[constants.NS].defaults, opts), // Merge settings, defaults and options.
+				    $wrap   = '',
+				    $toggle = '',
+				    $a      = '';
 				
 				//----------------------------------
 				// Initialize data:
@@ -103,9 +103,9 @@
 					// Create HTML:
 					//----------------------------------
 					
-					var $wrap = $('<div />', { 'class' : constants.NS }),                                // <div> that holds generated elements.
-					$toggle   = $('<div />', { 'class' : settings.internal.toggleClass }),               // Toggle button <div>.
-					$a        = $('<a />',   { 'class' : settings.internal.closedClass, 'href' : '#' }); // Toggle button <a>.
+					$wrap   = $('<div />', { 'class' : constants.NS }),                                // <div> that holds generated elements.
+					$toggle = $('<div />', { 'class' : settings.internal.toggleClass }),               // Toggle button <div>.
+					$a      = $('<a />',   { 'class' : settings.internal.closedClass, 'href' : '#' }); // Toggle button <a>.
 					
 					//----------------------------------
 					// Namespaced instance data:
@@ -165,7 +165,7 @@
 						// Add <a> to toggle <div>:
 						//----------------------------------
 						
-						$a.appendTo($toggle)
+						$a.appendTo($toggle);
 						
 						//----------------------------------
 						// Setup toggle:
@@ -177,13 +177,17 @@
 						// Add toggle <div> to wrap <div>:
 						//----------------------------------
 						
-						$wrap.append($toggle)
+						$wrap.append($toggle);
 						
 						//----------------------------------
 						// Clone?
 						//----------------------------------
 						
-						if (options.clone) $wrap.append($menu);
+						if (options.clone) {
+							
+							$wrap.append($menu);
+							
+						}
 						
 						//----------------------------------
 						// Clone?
@@ -199,7 +203,7 @@
 						
 					} else {
 						
-						if (constants.C) console.warn('there was a problem with your markup');
+						console.warn('there was a problem with your markup');
 						
 						return this;
 						
@@ -207,7 +211,7 @@
 					
 				} else {
 					
-					if (constants.C) console.warn(constants.NS, 'already initialized on', this);
+					console.warn(constants.NS, 'already initialized on', this);
 					
 					return this;
 					
@@ -239,8 +243,8 @@
 				// Local variable(s):
 				//----------------------------------
 				
-				var $$ = $(this),
-				data   = $$.data(constants.NS);
+				var $$   = $(this),
+				    data = $$.data(constants.NS);
 				
 				//----------------------------------
 				// Data?
@@ -280,10 +284,6 @@
 					
 					$$.removeData(constants.NS);
 					
-				} else {
-					
-					if (constants.C) console.warn(constants.NS, 'already initialized on', this);
-					
 				}
 			
 			});
@@ -313,7 +313,7 @@
 		//----------------------------------
 		
 		var options = this.data(constants.NS).options,
-		$clone      = this.clone();
+		    $clone  = this.clone();
 		
 		//----------------------------------
 		// ID?
@@ -339,7 +339,11 @@
 			// Auto-generate id with prefix:
 			//----------------------------------
 			
-			if (id) $clone.attr('id', constants.PREFIX + '-' + id);
+			if (id) {
+				
+				$clone.attr('id', constants.PREFIX + '-' + id);
+				
+			}
 			
 		} else {
 			
@@ -355,7 +359,11 @@
 		// Remove cloned children elements?
 		//----------------------------------
 		
-		if (options.cloneRemove) $clone.find(options.cloneRemove).remove();
+		if (options.cloneRemove) {
+			
+			$clone.find(options.cloneRemove).remove();
+			
+		}
 		
 		$clone
 			
@@ -396,8 +404,8 @@
 		// Local variable(s):
 		//----------------------------------
 		
-		var data = this.data(constants.NS),
-		options  = data.options;
+		var data     = this.data(constants.NS),
+		    options  = data.options;
 		
 		//----------------------------------
 		// Setup toggle:
@@ -415,8 +423,8 @@
 				// Local variable(s)?
 				//----------------------------------
 				
-				var $$ = $(this),
-				toggled = $$.data('toggled'); // rgne.ws/PX7b8K
+				var $$      = $(this),
+				    toggled = $$.data('toggled'); // rgne.ws/PX7b8K
 				
 				//----------------------------------
 				// Toggle state:
@@ -642,12 +650,12 @@
 		
 		// Callbacks:
 		
-		onInit       : function() {}, // After plugin data initialized.
-		onAfterInit  : function() {}, // After plugin initialization.
-		onBeforeShow : function() {}, // Before reveal animation begins.
-		onShow       : function() {}, // After reveal animation ends.
-		onBeforeHide : function() {}, // Before hide animation begins.
-		onHide       : function() {}  // After hide animation ends.
+		onInit       : $.noop, // After plugin data initialized.
+		onAfterInit  : $.noop, // After plugin initialization.
+		onBeforeShow : $.noop, // Before reveal animation begins.
+		onShow       : $.noop, // After reveal animation ends.
+		onBeforeHide : $.noop, // Before hide animation begins.
+		onHide       : $.noop  // After hide animation ends.
 		
 	}; // settings.external
 	

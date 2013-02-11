@@ -1,0 +1,323 @@
+/*!
+ * jQuery MegaKrill
+ * Compact navigation for mobile devices and responsive layouts!
+ *
+ * @author Micky Hulse
+ * @link http://hulse.me
+ * @docs https://github.com/registerguard/jquery-megakrill
+ * @copyright Copyright (c) 2013 Micky Hulse.
+ * @license Released under the Apache License, Version 2.0.
+ * @version 1.0.0
+ * @date 2013/02/11
+ *//*
+**--------------------------------------------------------------------------
+**
+** Desktop menu:
+**
+**--------------------------------------------------------------------------
+*/
+
+/* If Javascript is turned on, hide the desktop menu: */
+
+.js #demo { display: none; }
+
+/* If Javascript is turned off, hide desktop menu <div>s: */
+
+.demo-div {
+	position: absolute;
+	left: -999em;
+}
+
+/*
+**--------------------------------------------------------------------------
+**
+** Mobile menu:
+**
+**--------------------------------------------------------------------------
+*/
+
+/*
+**----------------------------------
+** Main wrapper div:
+**----------------------------------
+*/
+
+.megakrill {
+	min-height: 49px;
+	_height: 49px;
+	width: 100%;
+	float: left;
+	display: inline;
+}
+
+/*
+**----------------------------------
+** Toggle button:
+**----------------------------------
+*/
+
+.mk-toggle {
+	width: 49px;
+	height: 49px;
+	float: right;
+	display: inline;
+	_overflow: hidden; /* rgne.ws/KMrbW3 */
+}
+	.mk-toggle a {
+		line-height: 1;
+		background-color: #000;
+		background-image: url(./images/toggle.png);
+		_background-image: url(./images/toggle.gif);
+		background-repeat: no-repeat;
+		width: 100%;
+		height: 100%;
+		display: block;
+		overflow: hidden;
+		/* rgne.ws/SHv2bc */
+		-webkit-user-select: none;
+		-webkit-touch-callout: none;
+		-webkit-tap-highlight-color: transparent;
+	}
+	.mk-toggle a:active,
+	.mk-toggle a:focus { outline: none; }
+	.mk-toggle a.mk-opened {
+		background-color: #333;
+		background-position: 0 -49px;
+	}
+
+/*
+**----------------------------------
+** Menu structure:
+**----------------------------------
+*/
+
+.demo-ul,
+.demo-li {
+	margin: 0;
+	padding: 0;
+}
+.demo-ul {
+	width: 100%;
+	float: left;
+	display: inline;
+	clear: both;
+	*clear: none; /* rgne.ws/MrnTJt */
+}
+	.demo-li {
+		width: 100%;
+		float: left;
+		display: inline;
+	}
+	.demo-a { display: block; }
+
+/*
+**----------------------------------
+** Menu skin:
+**----------------------------------
+*/
+
+.demo-ul { background: #222; } /* Same color as <li> borders. */
+	.demo-li { border-bottom: 1px solid #222; }
+		.demo-li:last-child { border-bottom: 0; }
+		.demo-a {
+			letter-spacing: .05em;
+			line-height: 1;
+			text-decoration: none;
+			background-color: #333;
+			background-image: url(./images/arrow.png);
+			_background-image: url(./images/arrow.gif);
+			background-repeat: no-repeat;
+			background-position: right center;
+			padding: 15px 10px;
+		}
+		.demo-a,
+		.demo-a:visited,
+		.demo-a:visited:hover,
+		.demo-a:focus,
+		.demo-a:focus:hover,
+		.demo-a:hover,
+		.demo-a:active {
+			color: #fff;
+			text-decoration: none;
+		}
+		.demo-a:active,
+		.demo-a:focus { outline: none; }
+
+/*
+**--------------------------------------------------------------------------
+**
+** Retina display at < 1320px width:
+** rgne.ws/M1CLgG
+**
+**--------------------------------------------------------------------------
+*/
+
+@media
+only screen and (max-width: 1319px) and (min--moz-device-pixel-ratio: 1.5),
+only screen and (max-width: 1319px) and (-moz-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 1319px) and (-o-min-device-pixel-ratio: 3/2),
+only screen and (max-width: 1319px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 1319px) and (min-device-pixel-ratio: 1.5),
+only screen and (max-width: 1319px) and (min-resolution: 1.5dppx) {
+	
+	/*
+	**----------------------------------
+	** Toggle button:
+	**----------------------------------
+	*/
+	
+	.mk-toggle a {
+		background-image: url(./images/toggle@2x.png);
+		-moz-background-size: 49px 98px;
+		-ie-background-size: 49px 98px;
+		-o-background-size: 49px 98px;
+		-webkit-background-size: 49px 98px;
+		background-size: 49px 98px;
+	}
+	
+	/*
+	**----------------------------------
+	** Menu skin:
+	**----------------------------------
+	*/
+	
+	.demo-a {
+		background-image: url(./images/arrow@2x.png);
+		-moz-background-size: 29px 34px;
+		-ie-background-size: 29px 34px;
+		-o-background-size: 29px 34px;
+		-webkit-background-size: 29px 34px;
+		background-size: 29px 34px;
+	}
+	
+}
+
+/*
+**--------------------------------------------------------------------------
+**
+** Media queries:
+**
+**--------------------------------------------------------------------------
+*/
+
+@media only screen and (min-width: 1345px) {
+	
+	/*
+	**--------------------------------------------------------------------------
+	**
+	** Desktop menu:
+	**
+	**--------------------------------------------------------------------------
+	*/
+	
+	/* If Javascript is turned on, show the desktop menu: */
+	
+	.js #demo { display: block; }
+	
+	/*
+	**--------------------------------------------------------------------------
+	**
+	** Mobile menu:
+	**
+	**--------------------------------------------------------------------------
+	*/
+	
+	/*
+	**----------------------------------
+	** Main wrapper div:
+	**----------------------------------
+	*/
+	
+	.megakrill { display: none; }
+	
+	/*
+	**--------------------------------------------------------------------------
+	**
+	** Override and reset mobile menu styles:
+	**
+	**--------------------------------------------------------------------------
+	*/
+	
+	.demo-ul {
+		background: transparent;
+		width: auto;
+		float: none;
+		display: block;
+		clear: none;
+		*margin-top: 0;
+	}
+		.demo-li {
+			border: 0;
+			width: auto;
+			float: none;
+			display: list-item;
+		}
+		.demo-a {
+			letter-spacing: normal;
+			line-height: normal;
+			text-decoration: none;
+			background-color: transparent;
+			background-image: none;
+			background-repeat: repeat;
+			background-position: 0 0;
+			-moz-background-size: auto;
+			-ie-background-size: auto;
+			-o-background-size: auto;
+			-webkit-background-size: auto;
+			background-size: auto;
+			padding: 0;
+			display: inline;
+		}
+		.demo-a,
+		.demo-a:visited,
+		.demo-a:visited:hover,
+		.demo-a:focus,
+		.demo-a:focus:hover,
+		.demo-a:hover,
+		.demo-a:active { color: #00f; }
+		.demo-a:active,
+		.demo-a:focus { outline: invert none medium; }
+	
+	/*
+	**--------------------------------------------------------------------------
+	**
+	** Desktop menu:
+	**
+	**--------------------------------------------------------------------------
+	*/
+	
+	/*
+	**----------------------------------
+	** Menu structure:
+	**----------------------------------
+	*/
+	
+	.demo-ul,
+	.demo-li {
+		margin: 0;
+		padding: 0;
+	}
+	.demo-ul {
+		position: relative;
+		list-style: none;
+		float: left;
+		display: inline;
+		width: 100%;
+	}
+		.demo-li {
+			float: left;
+			display: inline;
+		}
+		.demo-li:hover { *visibility: inherit; }
+			.demo-a { display: block; }
+			.demo-div {
+				position: absolute;
+				left: -999em;
+			}
+				.demo-li:hover .demo-div {
+					top: auto;
+					left: 0;
+					z-index: 99;
+				}
+	
+}
