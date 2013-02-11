@@ -28,7 +28,7 @@
 	//
 	//--------------------------------------------------------------------------
 	
-	var console = window.console || { log : function() {}, warn : function() {} }, // Javascript console.
+	var console = window.console || { log : function() {}, warn : function() {} }, // Javascript `console`.
 	
 	//--------------------------------------------------------------------------
 	//
@@ -77,7 +77,7 @@
 		init : function(opts) {
 			
 			//----------------------------------
-			// Loop & return each "this":
+			// Loop & return each `this`:
 			//----------------------------------
 			
 			return this.each(function() {
@@ -87,14 +87,11 @@
 				//----------------------------------
 				
 				var $this   = $(this),                                                            // Target object.
-				    data    = $this.data(constants.NS),                                           // Namespace instance data.
-				    options = $.extend({}, settings.external, $.fn[constants.NS].defaults, opts), // Merge settings, defaults and options.
-				    $wrap   = '',
-				    $toggle = '',
-				    $a      = '';
+				    data    = $this.data(constants.NS),                                           // Namespace instance `data`.
+				    options = $.extend({}, settings.external, $.fn[constants.NS].defaults, opts); // Merge `settings`, `defaults` and `options`.
 				
 				//----------------------------------
-				// Initialize data:
+				// Initialize `data`:
 				//----------------------------------
 				
 				if ( ! data) {
@@ -103,12 +100,12 @@
 					// Create HTML:
 					//----------------------------------
 					
-					$wrap   = $('<div />', { 'class' : constants.NS }),                                // <div> that holds generated elements.
-					$toggle = $('<div />', { 'class' : settings.internal.toggleClass }),               // Toggle button <div>.
-					$a      = $('<a />',   { 'class' : settings.internal.closedClass, 'href' : '#' }); // Toggle button <a>.
+					var $wrap   = $('<div />', { 'class' : constants.NS }),                                // `<div>` that holds generated elements.
+					    $toggle = $('<div />', { 'class' : settings.internal.toggleClass }),               // Toggle button `<div>`.
+					    $a      = $('<a />',   { 'class' : settings.internal.closedClass, 'href' : '#' }); // Toggle button `<a>`.
 					
 					//----------------------------------
-					// Namespaced instance data:
+					// Namespaced instance `data`:
 					//----------------------------------
 					
 					$this.data(constants.NS, {
@@ -118,7 +115,7 @@
 						options : options,
 						target  : $this,
 						toggle  : $toggle,
-						toggled : false,
+						//toggled : false,
 						wrap    : $wrap
 						
 					});
@@ -138,7 +135,7 @@
 				if ( ! data.init) {
 					
 					//----------------------------------
-					// Data initialization flag:
+					// Data initialization `flag`:
 					//----------------------------------
 					
 					data.init = true;
@@ -147,45 +144,45 @@
 					// Callback:
 					//----------------------------------
 					
-					options.onInit.call($this);
+					data.options.onInit.call(data.target);
 					
 					//----------------------------------
 					// Check for object(s):
 					//----------------------------------
 					
-					if ($this.length) {
+					if (data.target.length) {
 						
 						//----------------------------------
 						// Get the (cloned) menu?
 						//----------------------------------
 						
-						var $menu = (options.clone) ? getClone.call($this) : $this;
+						var $menu = (data.options.clone) ? getClone.call(data.target) : data.target;
 						
 						//----------------------------------
-						// Add <a> to toggle <div>:
+						// Add `<a>` to toggle `<div>`:
 						//----------------------------------
 						
-						$a.appendTo($toggle);
+						data.a.appendTo(data.toggle);
 						
 						//----------------------------------
 						// Setup toggle:
 						//----------------------------------
 						
-						makeToggle.call($this, $a, $menu);
+						makeToggle.call(data.target, data.a, $menu);
 						
 						//----------------------------------
-						// Add toggle <div> to wrap <div>:
+						// Add toggle `<div>` to wrap `<div>`:
 						//----------------------------------
 						
-						$wrap.append($toggle);
+						data.wrap.append(data.toggle);
 						
 						//----------------------------------
 						// Clone?
 						//----------------------------------
 						
-						if (options.clone) {
+						if (data.options.clone) {
 							
-							$wrap.append($menu);
+							data.wrap.append($menu);
 							
 						}
 						
@@ -193,13 +190,13 @@
 						// Clone?
 						//----------------------------------
 						
-						$wrap.insertBefore($this);
+						data.wrap.insertBefore(data.target);
 						
 						//----------------------------------
 						// Callback:
 						//----------------------------------
 						
-						options.onAfterInit.call($this);
+						data.options.onAfterInit.call(data.target);
 						
 					} else {
 						
@@ -234,7 +231,7 @@
 		destroy: function() {
 			
 			//----------------------------------
-			// Loop & return each "this":
+			// Loop & return each `this`:
 			//----------------------------------
 			
 			return this.each(function() {
@@ -253,19 +250,13 @@
 				if (data) {
 					
 					//----------------------------------
-					// Local variable(s):
-					//----------------------------------
-					
-					var options = data.options;
-					
-					//----------------------------------
 					// Clone?
 					//----------------------------------
 					
-					if ( ! options.clone) {
+					if ( ! data.options.clone) {
 						
 						//----------------------------------
-						// Remove style attribute:
+						// Remove `style` attribute:
 						//----------------------------------
 						
 						data.target.removeAttr('style');
@@ -273,13 +264,13 @@
 					}
 					
 					//----------------------------------
-					// Remove generated HTML:
+					// Remove generated `HTML`:
 					//----------------------------------
 					
 					data.wrap.remove(); // All bound events and jQuery data associated with the elements are removed: rgne.ws/LqMnF5
 					
 					//----------------------------------
-					// Remove data from target:
+					// Remove `data` from `target`:
 					//----------------------------------
 					
 					$$.removeData(constants.NS);
@@ -312,25 +303,25 @@
 		// Local variable(s):
 		//----------------------------------
 		
-		var options = this.data(constants.NS).options,
+		var data    = this.data(constants.NS),
 		    $clone  = this.clone();
 		
 		//----------------------------------
 		// ID?
 		//----------------------------------
 		
-		if (typeof options.cloneId === 'string') {
+		if (typeof data.options.cloneId === 'string') {
 			
 			//----------------------------------
 			// Use provided ID string:
 			//----------------------------------
 			
-			$clone.attr('id', options.cloneId);
+			$clone.attr('id', data.options.cloneId);
 			
-		} else if (options.cloneId) {
+		} else if (data.options.cloneId) {
 			
 			//----------------------------------
-			// Instead, get ID of target:
+			// Instead, get ID of `target`:
 			//----------------------------------
 			
 			var id = $clone.attr('id');
@@ -359,16 +350,16 @@
 		// Remove cloned children elements?
 		//----------------------------------
 		
-		if (options.cloneRemove) {
+		if (data.options.cloneRemove) {
 			
-			$clone.find(options.cloneRemove).remove();
+			$clone.find(data.options.cloneRemove).remove();
 			
 		}
 		
 		$clone
 			
 			//----------------------------------
-			// Add class "clone" class:
+			// Add "clone" class:
 			//----------------------------------
 			
 			.addClass(settings.internal.cloneClass)
@@ -393,8 +384,8 @@
 	 * Get menu.
 	 *
 	 * @type  { function }
-	 * @param { object.jquery } $a jQuery <a> object.
-	 * @param { object.jquery } $menu jQuery <ul> object.
+	 * @param { object.jquery } $a jQuery `<a>` object.
+	 * @param { object.jquery } $menu jQuery `<ul>` object.
 	 * @this  { object.jquery }
 	 */
 	
@@ -404,8 +395,7 @@
 		// Local variable(s):
 		//----------------------------------
 		
-		var data     = this.data(constants.NS),
-		    options  = data.options;
+		var data = this.data(constants.NS);
 		
 		//----------------------------------
 		// Setup toggle:
@@ -424,13 +414,13 @@
 				//----------------------------------
 				
 				var $$      = $(this),
-				    toggled = $$.data('toggled'); // rgne.ws/PX7b8K
+				    toggled = $$.data(constants.NS + '.toggled'); // rgne.ws/PX7b8K
 				
 				//----------------------------------
 				// Toggle state:
 				//----------------------------------
 				
-				$$.data('toggled', ( ! toggled));
+				$$.data(constants.NS + '.toggled', ( ! toggled));
 				
 				if ( ! toggled) {
 					
@@ -438,7 +428,7 @@
 					// Callback:
 					//----------------------------------
 					
-					options.onBeforeShow.call($menu);
+					data.options.onBeforeShow.call($menu);
 					
 					$$
 						
@@ -470,13 +460,13 @@
 						// Animate open:
 						//----------------------------------
 						
-						.animate(options.animIn, options.speedIn, options.easeIn, function() {
+						.animate(data.options.animIn, data.options.speedIn, data.options.easeIn, function() {
 							
 							//----------------------------------
 							// Callback:
 							//----------------------------------
 							
-							options.onShow.call($menu);
+							data.options.onShow.call($menu);
 							
 						});
 					
@@ -486,7 +476,7 @@
 					// Callback:
 					//----------------------------------
 					
-					options.onBeforeHide.call($menu);
+					data.options.onBeforeHide.call($menu);
 					
 					//----------------------------------
 					// Menu:
@@ -504,7 +494,7 @@
 						// Animate closed:
 						//----------------------------------
 						
-						.animate(options.animOut, options.speedOut, options.easeOut, function() {
+						.animate(data.options.animOut, data.options.speedOut, data.options.easeOut, function() {
 							
 							//----------------------------------
 							// Toggle:
@@ -528,7 +518,7 @@
 							// Callback:
 							//----------------------------------
 							
-							options.onHide.call($menu);
+							data.options.onHide.call($menu);
 							
 						});
 					
@@ -641,7 +631,7 @@
 		animIn      : { height: 'toggle' }, // What animation object to use to show the submenus.
 		animOut     : { height: 'toggle' }, // IBID, but for hiding.
 		clone       : true,                 // Set to false if you don't want to clone target object.
-		cloneId     : true,                 // Auto clone id? One of "<id>", true or false.
+		cloneId     : true,                 // Auto clone id? One of `<id>`, `true` or `false`.
 		easeIn      : 'swing',              // Easing function in.
 		easeOut     : 'swing',              // Easing function out.
 		cloneRemove : false,                // Element(s) for the clone to remove.
