@@ -29,7 +29,7 @@
 
 //----------------------------------
 
-;(function($) {
+;(function($, window, document, undefined) {
 	
 	'use strict';
 	
@@ -680,4 +680,4 @@
 	
 	$.fn[constants.NS].defaults = settings.external; // rgne.ws/Mxifnq
 	
-})(jQuery);
+}(jQuery, window, document));

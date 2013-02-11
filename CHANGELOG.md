@@ -28,6 +28,7 @@
 	1. Cleaned up some formatting/comments as necessary.
 	1. Added curly braces to all `if` statements.
 	1. Fixed the various lint issues (missing semi colons and scope issues).
+	1. Closure updated: `;(function($, window, document, undefined) { … }(jQuery, window, document));`.
 * Updates to css:
 	* Removed `UTF-8` charset.
 	* A few other tweaks.
