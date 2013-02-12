@@ -31,15 +31,21 @@
 
 ;(function($, window, document, undefined) {
 	
-	'use strict';
+	'use strict'; // Lint setting.
 	
 	//--------------------------------------------------------------------------
 	//
-	// Globals:
+	// Local "globals":
 	//
 	//--------------------------------------------------------------------------
 	
-	var console = window.console || { log : function() {}, warn : function() {} }, // Javascript `console`.
+	/**
+	 * Javascript console.
+	 *
+	 * @see rgne.ws/12p2bvl
+	 */
+	
+	var console = window.console || { log : function() {}, warn : function() {} },
 	
 	//--------------------------------------------------------------------------
 	//
@@ -51,7 +57,6 @@
 	 * Commonly used variables.
 	 *
 	 * @type { object }
-	 *
 	 * @const
 	 */
 	
@@ -79,16 +84,16 @@
 		/**
 		 * Init constructor.
 		 *
-		 * @type   { function }
-		 * @param  { object } opts Options object literal.
-		 * @this   { object.jquery }
+		 * @type { function }
+		 * @param { object } opts Options object literal.
+		 * @this { object.jquery }
 		 * @return { object.jquery } Returns target object(s) for chaining purposes.
 		 */
 		
 		init : function(opts) {
 			
 			//----------------------------------
-			// Loop & return each `this`:
+			// Loop & return each this:
 			//----------------------------------
 			
 			return this.each(function() {
@@ -98,11 +103,11 @@
 				//----------------------------------
 				
 				var $this   = $(this),                                                            // Target object.
-				    data    = $this.data(constants.NS),                                           // Namespace instance `data`.
-				    options = $.extend({}, settings.external, $.fn[constants.NS].defaults, opts); // Merge `settings`, `defaults` and `options`.
+				    data    = $this.data(constants.NS),                                           // Namespace instance data.
+				    options = $.extend({}, settings.external, $.fn[constants.NS].defaults, opts); // Merge settings, defaults and opts.
 				
 				//----------------------------------
-				// Initialize `data`:
+				// Initialize data:
 				//----------------------------------
 				
 				if ( ! data) {
@@ -116,7 +121,7 @@
 					    $a      = $('<a />',   { 'class' : settings.internal.closedClass, 'href' : '#' }); // Toggle button `<a>`.
 					
 					//----------------------------------
-					// Namespaced instance `data`:
+					// Namespaced instance data:
 					//----------------------------------
 					
 					$this.data(constants.NS, {
@@ -126,13 +131,12 @@
 						options : options,
 						target  : $this,
 						toggle  : $toggle,
-						//toggled : false,
 						wrap    : $wrap
 						
 					});
 					
 					//----------------------------------
-					// Easy access for later:
+					// Easy access:
 					//----------------------------------
 					
 					data = $this.data(constants.NS);
@@ -146,103 +150,41 @@
 				if ( ! data.init) {
 					
 					//----------------------------------
-					// Data initialization `flag`:
+					// Call main:
 					//----------------------------------
 					
-					data.init = true;
-					
-					//----------------------------------
-					// Callback:
-					//----------------------------------
-					
-					data.options.onInit.call(data.target);
-					
-					//----------------------------------
-					// Check for object(s):
-					//----------------------------------
-					
-					if (data.target.length) {
-						
-						//----------------------------------
-						// Get the (cloned) menu?
-						//----------------------------------
-						
-						var $menu = (data.options.clone) ? getClone.call(data.target) : data.target;
-						
-						//----------------------------------
-						// Add `<a>` to toggle `<div>`:
-						//----------------------------------
-						
-						data.a.appendTo(data.toggle);
-						
-						//----------------------------------
-						// Setup toggle:
-						//----------------------------------
-						
-						makeToggle.call(data.target, data.a, $menu);
-						
-						//----------------------------------
-						// Add toggle `<div>` to wrap `<div>`:
-						//----------------------------------
-						
-						data.wrap.append(data.toggle);
-						
-						//----------------------------------
-						// Clone?
-						//----------------------------------
-						
-						if (data.options.clone) {
-							
-							data.wrap.append($menu);
-							
-						}
-						
-						//----------------------------------
-						// Clone?
-						//----------------------------------
-						
-						data.wrap.insertBefore(data.target);
-						
-						//----------------------------------
-						// Callback:
-						//----------------------------------
-						
-						data.options.onAfterInit.call(data.target);
-						
-					} else {
-						
-						console.warn('there was a problem with your markup');
-						
-						return this;
-						
-					}
+					_main.call($this, data);
 					
 				} else {
 					
-					console.warn(constants.NS, 'already initialized on', this);
+					//----------------------------------
+					// Ouch!
+					//----------------------------------
 					
-					return this;
+					console.warn('jQuery.' + constants.NS, 'thinks it\'s already initialized on', this);
+					
+					//return this; // Needed?
 					
 				}
 				
 			});
 			
-		}, // init()
+		}, // init
 		
-		//--------------------------------------------------------------------
+		//----------------------------------
 		
 		/**
 		 * Removes plugin from element.
 		 *
-		 * @type   { function }
-		 * @this   { object.jquery }
+		 * @type { function }
+		 * @this { object.jquery }
 		 * @return { object.jquery } Returns target object(s) for chaining purposes.
 		 */
 		
-		destroy: function() {
+		destroy : function() {
 			
 			//----------------------------------
-			// Loop & return each `this`:
+			// Loop & return each this:
 			//----------------------------------
 			
 			return this.each(function() {
@@ -251,8 +193,8 @@
 				// Local variable(s):
 				//----------------------------------
 				
-				var $$   = $(this),
-				    data = $$.data(constants.NS);
+				var $this = $(this),
+				    data  = $this.data(constants.NS);
 				
 				//----------------------------------
 				// Data?
@@ -267,7 +209,7 @@
 					if ( ! data.options.clone) {
 						
 						//----------------------------------
-						// Remove `style` attribute:
+						// Remove style attribute:
 						//----------------------------------
 						
 						data.target.removeAttr('style');
@@ -275,22 +217,22 @@
 					}
 					
 					//----------------------------------
-					// Remove generated `HTML`:
+					// Remove generated HTML:
 					//----------------------------------
 					
 					data.wrap.remove(); // All bound events and jQuery data associated with the elements are removed: rgne.ws/LqMnF5
 					
 					//----------------------------------
-					// Remove `data` from `target`:
+					// Remove data from target:
 					//----------------------------------
 					
-					$$.removeData(constants.NS);
+					$this.removeData(constants.NS);
 					
 				}
-			
+				
 			});
 			
-		} // destroy()
+		} // destroy
 		
 	}, // methods
 	
@@ -301,27 +243,138 @@
 	//--------------------------------------------------------------------------
 	
 	/**
+	 * Called after plugin initialization.
+	 *
+	 * @private
+	 * @type { function }
+	 * @this { object.jquery }
+	 */
+	
+	_main = function(data) {
+		
+		//----------------------------------
+		// Data?
+		//----------------------------------
+		
+		if (typeof data == 'undefined') {
+			
+			//----------------------------------
+			// Attempt to determine data:
+			//----------------------------------
+			
+			data = this.data(constants.NS);
+			
+		}
+		
+		//----------------------------------
+		// Data?
+		//----------------------------------
+		
+		if (data) {
+			
+			//----------------------------------
+			// Yup!
+			//----------------------------------
+			
+			data.init = true; // Data initialization flag.
+			
+			//----------------------------------
+			// Callback:
+			//----------------------------------
+			
+			data.options.onInit.call(data.target);
+			
+			//----------------------------------
+			// Check for object(s):
+			//----------------------------------
+			
+			if (data.target.length) {
+				
+				//----------------------------------
+				// Get the (cloned) menu?
+				//----------------------------------
+				
+				var $menu = (data.options.clone) ? _getClone.call(data.target) : data.target;
+				
+				//----------------------------------
+				// Add `<a>` to toggle `<div>`:
+				//----------------------------------
+				
+				data.a.appendTo(data.toggle);
+				
+				//----------------------------------
+				// Setup toggle:
+				//----------------------------------
+				
+				_makeToggle.call(data.target, data.a, $menu);
+				
+				//----------------------------------
+				// Add toggle `<div>` to wrap `<div>`:
+				//----------------------------------
+				
+				data.wrap.append(data.toggle);
+				
+				//----------------------------------
+				// Clone?
+				//----------------------------------
+				
+				if (data.options.clone) {
+					
+					data.wrap.append($menu);
+					
+				}
+				
+				//----------------------------------
+				// Clone?
+				//----------------------------------
+				
+				data.wrap.insertBefore(data.target);
+				
+				//----------------------------------
+				// Callback:
+				//----------------------------------
+				
+				data.options.onAfterInit.call(data.target);
+				
+			} else {
+				
+				//----------------------------------
+				// Problemos:
+				//----------------------------------
+				
+				console.warn('jQuery.' + constants.NS, 'thinks there\'s a problem with your markup');
+				
+			}
+			
+		}
+		
+	}, // _main
+	
+	//----------------------------------
+	
+	/**
 	 * Get menu.
 	 *
-	 * @type   { function }
-	 * @this   { object.jquery }
+	 * @private
+	 * @type { function }
+	 * @this { object.jquery }
 	 * @return { object.jquery } Returns clone of @this.
 	 */
 	
-	getClone = function() {
+	_getClone = function() {
 		
 		//----------------------------------
 		// Local variable(s):
 		//----------------------------------
 		
-		var data    = this.data(constants.NS),
-		    $clone  = this.clone();
+		var data   = this.data(constants.NS),
+		    $clone = this.clone();
 		
 		//----------------------------------
 		// ID?
 		//----------------------------------
 		
-		if (typeof data.options.cloneId === 'string') {
+		if (typeof data.options.cloneId == 'string') {
 			
 			//----------------------------------
 			// Use provided ID string:
@@ -387,20 +440,21 @@
 		
 		return $clone;
 		
-	}, // getClone()
+	}, // _getClone
 	
-	//--------------------------------------------------------------------
+	//----------------------------------
 	
 	/**
 	 * Get menu.
 	 *
-	 * @type  { function }
+	 * @private
+	 * @type { function }
 	 * @param { object.jquery } $a jQuery `<a>` object.
 	 * @param { object.jquery } $menu jQuery `<ul>` object.
-	 * @this  { object.jquery }
+	 * @this { object.jquery }
 	 */
 	
-	makeToggle = function($a, $menu) {
+	_makeToggle = function($a, $menu) {
 		
 		//----------------------------------
 		// Local variable(s):
@@ -424,14 +478,14 @@
 				// Local variable(s)?
 				//----------------------------------
 				
-				var $$      = $(this),
-				    toggled = $$.data(constants.NS + '.toggled'); // rgne.ws/PX7b8K
+				var $this   = $(this),
+				    toggled = $this.data(constants.NS + '.toggled'); // rgne.ws/PX7b8K
 				
 				//----------------------------------
 				// Toggle state:
 				//----------------------------------
 				
-				$$.data(constants.NS + '.toggled', ( ! toggled));
+				$this.data(constants.NS + '.toggled', ( ! toggled));
 				
 				if ( ! toggled) {
 					
@@ -441,7 +495,7 @@
 					
 					data.options.onBeforeShow.call($menu);
 					
-					$$
+					$this
 						
 						//----------------------------------
 						// Remove existing classes:
@@ -477,7 +531,7 @@
 							// Callback:
 							//----------------------------------
 							
-							data.options.onShow.call($menu);
+							data.options.onShow.call($(this));
 							
 						});
 					
@@ -511,7 +565,7 @@
 							// Toggle:
 							//----------------------------------
 							
-							$$
+							$this // Double check that this is what it's supposed to be.
 								
 								//----------------------------------
 								// Remove existing classes:
@@ -529,7 +583,7 @@
 							// Callback:
 							//----------------------------------
 							
-							data.options.onHide.call($menu);
+							data.options.onHide.call($(this));
 							
 						});
 					
@@ -544,20 +598,15 @@
 			}
 			
 			//----------------------------------
-			// Stop propagation:
-			//----------------------------------
-			
-			e.stopPropagation();
-			
-			//----------------------------------
-			// Prevent default:
+			// Prevent default & stop bubbling:
 			//----------------------------------
 			
 			e.preventDefault();
+			e.stopPropagation();
 			
 		});
 		
-	}; // makeToggle()
+	}; // _makeToggle
 	
 	//--------------------------------------------------------------------------
 	//
@@ -568,31 +617,26 @@
 	/**
 	 * Boilerplate plugin logic.
 	 *
-	 * @link   rgne.ws/OvKpPc
-	 * @type   { function }
-	 * @param  { string } method String method identifier.
-	 * @return { method } Calls plugin method with supplied params.
-	 *
 	 * @constructor
+	 * @see rgne.ws/OvKpPc
+	 * @type { function }
+	 * @param { string } method String method identifier.
+	 * @return { method } Calls plugin method with supplied params.
 	 */
 	
 	$.fn[constants.NS] = function(method) {
-		
-		//----------------------------------
-		// Boilerplate:
-		//----------------------------------
 		
 		if (methods[method]) {
 			
 			return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
 			
-		} else if ((typeof method === 'object') || ( ! method)) {
+		} else if ((typeof method == 'object') || ( ! method)) {
 			
 			return methods.init.apply(this, arguments);
 			
 		} else {
 			
-			$.error('Method ' + method + ' does not exist on jQuery.' + constants.NS); // Should I override? rgne.ws/MwgkP8
+			$.error('jQuery.' + constants.NS + ' thinks that ' + method + ' doesn\'t exist'); // Should I override? rgne.ws/MwgkP8
 			
 		}
 		
