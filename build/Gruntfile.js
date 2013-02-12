@@ -21,7 +21,7 @@ module.exports = function(grunt) {
 			             '<%= pkg.licenses ? " * @license Released under the " + _.pluck(pkg.licenses, "type").join(", ") + ".\\n" : "" %>' +
 			             '<%= pkg.version ? " * @version " + pkg.version + "\\n" : "" %>' +
 			             ' * @date <%= grunt.template.today("yyyy/mm/dd") %>\n' +
-			             ' */\r\r',
+			             ' */\n\n',
 			
 			banner_short: '/*! ' +
 			              '<%= pkg.title || pkg.name %>' +
