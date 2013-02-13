@@ -8,7 +8,7 @@
  * @copyright Copyright (c) 2013 Micky Hulse.
  * @license Released under the Apache License, Version 2.0.
  * @version 1.0.0
- * @date 2013/02/12
+ * @date 2013/02/13
  */
 
 /*
@@ -110,7 +110,10 @@
 		float: left;
 		display: inline;
 	}
-	.demo-a { display: block; }
+	.demo-a {
+		display: block;
+		_width: 100%; /* rgne.ws/Z9RSis */
+	}
 
 /*
 **----------------------------------
@@ -162,6 +165,8 @@ only screen and (max-width: 1319px) and (-webkit-min-device-pixel-ratio: 1.5),
 only screen and (max-width: 1319px) and (min-device-pixel-ratio: 1.5),
 only screen and (max-width: 1319px) and (min-resolution: 1.5dppx) {
 	
+	/* @BUG: https://github.com/registerguard/jquery-megakrill/issues/14 */
+	
 	/*
 	**----------------------------------
 	** Toggle button:
@@ -176,6 +181,7 @@ only screen and (max-width: 1319px) and (min-resolution: 1.5dppx) {
 		-webkit-background-size: 49px 98px;
 		background-size: 49px 98px;
 	}
+		.lt-ie9 .mk-toggle a { background-image: url(./images/toggle.gif); }
 	
 	/*
 	**----------------------------------
@@ -191,6 +197,7 @@ only screen and (max-width: 1319px) and (min-resolution: 1.5dppx) {
 		-webkit-background-size: 29px 34px;
 		background-size: 29px 34px;
 	}
+		.lt-ie9 .demo-a { background-image: url(./images/arrow.gif); }
 	
 }
 

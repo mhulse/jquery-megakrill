@@ -41,8 +41,8 @@ h1 {
 }
 	/* If javascript is turned off, tidy things up: */
 	.no-js h1 {
+		margin: 0 0 10px;
 		position: static;
-		margin-bottom: 10px;
 	}
 
 @media only screen and (min-width: 1345px) {
