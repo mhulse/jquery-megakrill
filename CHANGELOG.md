@@ -79,8 +79,8 @@
 	* Safari (simulated), Safari
 * iPad, iOS `6.1`:
 	* Safari (simulated)
-* Motorola Droid 4, Android 4.0.4
-	* Browser, Dolphin 9.3.1
+* Motorola Droid `4`, Android `4.0.4`
+	* Browser, Dolphin `9.3.1`
 
 ---
 
