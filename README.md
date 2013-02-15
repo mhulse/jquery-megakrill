@@ -6,15 +6,15 @@
 
 #### OPTIONS
 
-* `animIn`: What animation object to use to show the submenus.
-* `animOut`: IBID, but for hiding.
-* `clone`: Set to false if you don't want to clone target object.
-* `cloneId`: Auto clone id? One of `<id>`, true or false.
-* `easeIn`: Easing function in.
-* `easeOut`: Easing function out.
-* `cloneRemove`: Element(s) for the clone to remove.
-* `speedIn`: Animation speed in.
-* `speedOut`: Animation speed out.
+* `animIn`: What animation object to use to show the submenus. Default: `{ height: 'toggle' }`.
+* `animOut`: IBID, but for hiding. Default: `{ height: 'toggle' }`.
+* `clone`: Set to false if you don't want to clone target object. Default: `true`.
+* `cloneId`: Auto clone id? One of `<id>`, true or false. Default: `true`.
+* `easeIn`: Easing function in. Default: `swing`.
+* `easeOut`: Easing function out. Default: `swing`.
+* `cloneRemove`: Element(s) for the clone to remove. Default: `false`.
+* `speedIn`: Animation speed in. Default: `normal`.
+* `speedOut`: Animation speed out. Default: `normal`.
 
 **Callbacks:**
 
@@ -36,6 +36,8 @@ Just **MegaKrill**:
 … and here's a demo using **MegaKrill** and the [jQuery **MegaWhale** plugin](https://github.com/registerguard/jquery-megawhale):
 
 [![qr code](http://chart.apis.google.com/chart?cht=qr&chl=https://github.com/registerguard/jquery-mega-demos/&chs=240x240)](http://registerguard.github.com/jquery-mega-demos/)
+
+Resize the browser window to see the plugin(s) in action (Firefox 15+ users, check out [Responsive Design View](https://developer.mozilla.org/en-US/docs/Tools/Responsive_Design_View)). 
 
 ---
 

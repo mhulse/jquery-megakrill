@@ -27,6 +27,12 @@ body { font-family: Arial, sans-serif; } /* Serif: Cambria, Georgia, serif; */
 
 header { position: relative; }
 
+nav {
+	/* Moved from .megakrill class: */
+	min-height: 49px;
+	_height: 49px;
+}
+
 h1 {
 	font-family: Cambria, Georgia, serif;
 	text-rendering: optimizeLegibility;
@@ -46,6 +52,11 @@ h1 {
 	}
 
 @media only screen and (min-width: 1345px) {
+	
+	nav {
+		min-height: auto;
+		height: auto;
+	}
 	
 	h1 {
 		margin: 0 0 10px;

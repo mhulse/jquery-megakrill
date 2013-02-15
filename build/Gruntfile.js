@@ -61,6 +61,8 @@ module.exports = function(grunt) {
 		
 		/**
 		 * @see http://www.jshint.com/docs/
+		 * @see http://www.jshint.com/docs/
+		 * @see https://github.com/jshint/jshint/blob/r12/jshint.js#L256
 		 */
 		
 		jshint: {

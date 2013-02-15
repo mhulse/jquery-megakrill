@@ -7,8 +7,8 @@
  * @docs https://github.com/registerguard/jquery-megakrill
  * @copyright Copyright (c) 2013 Micky Hulse.
  * @license Released under the Apache License, Version 2.0.
- * @version 1.0.0
- * @date 2013/02/13
+ * @version 1.1.0
+ * @date 2013/02/15
  */
 
 //----------------------------------
@@ -33,7 +33,13 @@
 
 ;(function($, window, document, undefined) {
 	
-	'use strict'; // Lint setting.
+	/**
+	 * Function-level strict mode syntax.
+	 *
+	 * @see rgne.ws/XcZgn8
+	 */
+	
+	'use strict';
 	
 	//--------------------------------------------------------------------------
 	//
@@ -48,6 +54,14 @@
 	 */
 	
 	var console = window.console || { log : function() {}, warn : function() {} },
+	
+	/**
+	 * Settings object.
+	 *
+	 * @type { object }
+	 */
+	
+	settings = {}, // Initialize settings object.
 	
 	//--------------------------------------------------------------------------
 	//
@@ -101,26 +115,30 @@
 			return this.each(function() {
 				
 				//----------------------------------
-				// Local variable(s):
+				// Declare/initialize:
 				//----------------------------------
 				
-				var $this   = $(this),                                                            // Target object.
-				    data    = $this.data(constants.NS),                                           // Namespace instance data.
-				    options = $.extend({}, settings.external, $.fn[constants.NS].defaults, opts); // Merge settings, defaults and opts.
+				var $this = $(this),                  // Target object.
+				    data  = $this.data(constants.NS), // Namespace instance data.
+				    options,
+				    $wrap,
+				    $toggle,
+				    $a;
 				
 				//----------------------------------
-				// Initialize data:
+				// Data?
 				//----------------------------------
 				
 				if ( ! data) {
 					
 					//----------------------------------
-					// Create HTML:
+					// Initialize:
 					//----------------------------------
 					
-					var $wrap   = $('<div />', { 'class' : constants.NS }),                                // `<div>` that holds generated elements.
-					    $toggle = $('<div />', { 'class' : settings.internal.toggleClass }),               // Toggle button `<div>`.
-					    $a      = $('<a />',   { 'class' : settings.internal.closedClass, 'href' : '#' }); // Toggle button `<a>`.
+					options = $.extend({}, settings.external, $.fn[constants.NS].defaults, opts);      // Merge settings, defaults and opts.
+					$wrap   = $('<div />', { 'class' : constants.NS });                                // `<div>` that holds generated elements.
+					$toggle = $('<div />', { 'class' : settings.internal.toggleClass });               // Toggle button `<div>`.
+					$a      = $('<a />',   { 'class' : settings.internal.closedClass, 'href' : '#' }); // Toggle button `<a>`.
 					
 					//----------------------------------
 					// Namespaced instance data:
@@ -192,7 +210,7 @@
 			return this.each(function() {
 				
 				//----------------------------------
-				// Local variable(s):
+				// Declare/initialize:
 				//----------------------------------
 				
 				var $this = $(this),
@@ -255,6 +273,12 @@
 	_main = function(data) {
 		
 		//----------------------------------
+		// Declare/initialize:
+		//----------------------------------
+		
+		var $menu;
+		
+		//----------------------------------
 		// Data?
 		//----------------------------------
 		
@@ -296,7 +320,7 @@
 				// Get the (cloned) menu?
 				//----------------------------------
 				
-				var $menu = (data.options.clone) ? _getClone.call(data.target) : data.target;
+				$menu = (data.options.clone) ? _getClone.call(data.target) : data.target;
 				
 				//----------------------------------
 				// Add `<a>` to toggle `<div>`:
@@ -366,11 +390,12 @@
 	_getClone = function() {
 		
 		//----------------------------------
-		// Local variable(s):
+		// Declare/initialize:
 		//----------------------------------
 		
 		var data   = this.data(constants.NS),
-		    $clone = this.clone();
+		    $clone = this.clone(),
+		    id;
 		
 		//----------------------------------
 		// ID?
@@ -390,7 +415,7 @@
 			// Instead, get ID of `target`:
 			//----------------------------------
 			
-			var id = $clone.attr('id');
+			id = $clone.attr('id');
 			
 			//----------------------------------
 			// Auto-generate id with prefix:
@@ -459,7 +484,7 @@
 	_makeToggle = function($a, $menu) {
 		
 		//----------------------------------
-		// Local variable(s):
+		// Declare/initialize:
 		//----------------------------------
 		
 		var data = this.data(constants.NS);
@@ -471,17 +496,24 @@
 		$a.on('click.' + constants.NS + ' touchstart.' + constants.NS, function(e) {
 			
 			//----------------------------------
+			// Declare:
+			//----------------------------------
+			
+			var $this,
+			    toggled;
+			
+			//----------------------------------
 			// Handle event type:
 			//----------------------------------
 			
 			if ( ! e.handled) { // rgne.ws/Ny7oxk
 				
 				//----------------------------------
-				// Local variable(s)?
+				// Initialize:
 				//----------------------------------
 				
-				var $this   = $(this),
-				    toggled = $this.data(constants.NS + '.toggled'); // rgne.ws/PX7b8K
+				$this   = $(this);
+				toggled = $this.data(constants.NS + '.toggled'); // rgne.ws/PX7b8K
 				
 				//----------------------------------
 				// Toggle state:
@@ -642,23 +674,13 @@
 			
 		}
 		
-	}; // constructor()
+	}; // constructor
 	
 	//--------------------------------------------------------------------------
 	//
 	// Default settings:
 	//
 	//--------------------------------------------------------------------------
-	
-	/**
-	 * Settings object.
-	 *
-	 * @type { object }
-	 */
-	
-	var settings = {}; // Initialize settings object.
-	
-	//----------------------------------
 	
 	/**
 	 * Private settings.

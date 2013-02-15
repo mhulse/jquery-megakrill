@@ -1,7 +1,26 @@
 # Changelog
 
+## v1.1.0
+#### February, 10 2013
+
+* Bumped version number to `v1.1.0`.
+* Updated `README.md`
+	* Added default values.
+	* Updated copy.
+* Grunt:
+	* Added `.jshintrc` file. (#22)
+	* Updated `Gruntfile.js` to point to the new `.jshintrc` file.
+	* Added a few links in the comments of `Gruntfile.js`.
+* `jquery.megakrill.js`:
+	* Updated comments for lint. (#23)
+	* Based on latest JSHint settings:
+		* Only one var per scope.
+		* Rearranged blocks based on one var per scope rule.
+	* Some comment tweaks.
+* Removed `min-height` styles from `jquery.megakrill.css` and into `demo.css`. (#17)
+
 ## v1.0.0
-#### February ,10 2013
+#### February, 10 2013
 
 * Demo:
 	* Removed `ios-orientationchange-fix.js`.
