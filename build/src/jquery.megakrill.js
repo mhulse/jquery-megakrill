@@ -42,6 +42,8 @@
 	
 	var console = window.console || { log : function() {}, warn : function() {} },
 	
+	//----------------------------------
+	
 	/**
 	 * Settings object.
 	 *
