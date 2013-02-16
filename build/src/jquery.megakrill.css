@@ -160,11 +160,11 @@ only screen and (max-width: 1319px) and (min-resolution: 1.5dppx) {
 	
 	.mk-toggle a {
 		background-image: url(./images/toggle@2x.png);
-		-moz-background-size: 49px 98px;
-		-ie-background-size: 49px 98px;
-		-o-background-size: 49px 98px;
 		-webkit-background-size: 49px 98px;
-		background-size: 49px 98px;
+		   -moz-background-size: 49px 98px;
+		    -ie-background-size: 49px 98px;
+		     -o-background-size: 49px 98px;
+		        background-size: 49px 98px;
 	}
 		.lt-ie9 .mk-toggle a { background-image: url(./images/toggle.gif); }
 	
@@ -176,11 +176,11 @@ only screen and (max-width: 1319px) and (min-resolution: 1.5dppx) {
 	
 	.demo-a {
 		background-image: url(./images/arrow@2x.png);
-		-moz-background-size: 29px 34px;
-		-ie-background-size: 29px 34px;
-		-o-background-size: 29px 34px;
 		-webkit-background-size: 29px 34px;
-		background-size: 29px 34px;
+		   -moz-background-size: 29px 34px;
+		    -ie-background-size: 29px 34px;
+		     -o-background-size: 29px 34px;
+		        background-size: 29px 34px;
 	}
 		.lt-ie9 .demo-a { background-image: url(./images/arrow.gif); }
 	
@@ -254,11 +254,11 @@ only screen and (max-width: 1319px) and (min-resolution: 1.5dppx) {
 			background-image: none;
 			background-repeat: repeat;
 			background-position: 0 0;
-			-moz-background-size: auto;
-			-ie-background-size: auto;
-			-o-background-size: auto;
 			-webkit-background-size: auto;
-			background-size: auto;
+			   -moz-background-size: auto;
+			    -ie-background-size: auto;
+			     -o-background-size: auto;
+			        background-size: auto;
 			padding: 0;
 			display: inline;
 		}

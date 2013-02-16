@@ -41,6 +41,12 @@ Resize the browser window to see the plugin(s) in action (Firefox 15+ users, che
 
 ---
 
+#### DISCLAIMER
+
+While I've done my best to make this code as plug-and-play as possible, you'll most likely have to customize the CSS to suit your needs.
+
+---
+
 #### LEGAL
 
 Copyright © 2013 [Micky Hulse](http://hulse.me)/[The Register-Guard](http://registerguard.com)
