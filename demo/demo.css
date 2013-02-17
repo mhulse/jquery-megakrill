@@ -51,12 +51,18 @@ h1 {
 		position: static;
 	}
 
-@media only screen and (min-width: 1345px) {
+@media only screen and (min-width: 665px) {
 	
 	.container {
-		width: 1320px;
-		margin: 50px auto;
+		width: 640px;
+		margin: 10px auto;
 	}
+	
+}
+
+@media only screen and (min-width: 1005px) {
+	
+	.container { width: 980px; }
 	
 	nav {
 		min-height: auto;

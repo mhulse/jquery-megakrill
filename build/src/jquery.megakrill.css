@@ -96,8 +96,8 @@
 		display: inline;
 	}
 	.demo-a {
-		display: block;
 		_width: 100%; /* rgne.ws/Z9RSis */
+		display: block;
 	}
 
 /*
@@ -136,19 +136,19 @@
 /*
 **--------------------------------------------------------------------------
 **
-** Retina display at < 1320px width:
+** Retina display at < 1005px width:
 ** rgne.ws/M1CLgG
 **
 **--------------------------------------------------------------------------
 */
 
 @media /* https://github.com/GoalSmashers/clean-css/issues/66 */
-only screen and (max-width: 1319px) and (min--moz-device-pixel-ratio: 1.5),
-only screen and (max-width: 1319px) and (-moz-min-device-pixel-ratio: 1.5),
-only screen and (max-width: 1319px) and (-o-min-device-pixel-ratio: 3/2),
-only screen and (max-width: 1319px) and (-webkit-min-device-pixel-ratio: 1.5),
-only screen and (max-width: 1319px) and (min-device-pixel-ratio: 1.5),
-only screen and (max-width: 1319px) and (min-resolution: 1.5dppx) {
+only screen and (max-width: 1004px) and (min--moz-device-pixel-ratio: 1.5),
+only screen and (max-width: 1004px) and (-moz-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 1004px) and (-o-min-device-pixel-ratio: 3/2),
+only screen and (max-width: 1004px) and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (max-width: 1004px) and (min-device-pixel-ratio: 1.5),
+only screen and (max-width: 1004px) and (min-resolution: 1.5dppx) {
 	
 	/* @BUG: https://github.com/registerguard/jquery-megakrill/issues/14 */
 	
@@ -194,7 +194,7 @@ only screen and (max-width: 1319px) and (min-resolution: 1.5dppx) {
 **--------------------------------------------------------------------------
 */
 
-@media only screen and (min-width: 1345px) {
+@media only screen and (min-width: 1005px) {
 	
 	/*
 	**--------------------------------------------------------------------------
@@ -259,6 +259,7 @@ only screen and (max-width: 1319px) and (min-resolution: 1.5dppx) {
 			    -ie-background-size: auto;
 			     -o-background-size: auto;
 			        background-size: auto;
+			_width: auto;
 			padding: 0;
 			display: inline;
 		}
