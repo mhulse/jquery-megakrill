@@ -1,5 +1,7 @@
 # jQuery MegaKrill
 
+![MegaKrill gif demo](megakrill.gif)
+
 ### Compact navigation for mobile devices and responsive layouts!
 
 ---
