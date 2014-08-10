@@ -22,7 +22,7 @@ Resize the browser window to see the plugin(s) in action (Firefox 15+ users, che
 1. Download as a [`zip`](https://github.com/mhulse/jquery-megakrill/archive/gh-pages.zip).
 1. Clone it: `$ git clone https://github.com/mhulse/jquery-megakrill.git`.
 1. Fork it and clone: `$ git clone git@github.com:USERNAME/jquery-megakrill.git`.
-1. Just grab the relevant [JS](https://raw.github.com/mhulse/jquery-megakrill/gh-pages/megakrill/jquery.megakrill.js) ([uglified](https://raw.github.com/mhulse/jquery-megakrill/gh-pages/megakrill/jquery.megakrill.min.js)) files.
+1. Just grab the relevant [JS](https://raw.github.com/mhulse/jquery-megakrill/gh-pages/megakrill/jquery.megakrill.js) ([uglified](https://raw.github.com/mhulse/jquery-megakrill/gh-pages/megakrill/jquery.megakrill.min.js)) and CSS (see “[Styling](#styling)” notes below) files.
 1. Using [Bower](http://bower.io/): `$ bower install https://github.com/mhulse/jquery-megakrill.git`.
 
 ## Usage
@@ -37,7 +37,7 @@ See [demo page HTML](https://github.com/mhulse/jquery-megakrill/blob/gh-pages/de
 
 **DISCLAIMER:** While I’ve done my best to make this code as plug-and-play as possible, you’ll most likely have to customize the CSS to suit your needs.
 
-With that said, until I can resolve [issue #26](https://github.com/mhulse/jquery-megakrill/issues/26), you’ll want to combine/modify the [packaged](https://github.com/mhulse/jquery-megakrill/blob/gh-pages/megakrill/jquery.megakrill.css) and [demo](https://github.com/mhulse/jquery-megakrill/blob/gh-pages/demo/demo.css) page's CSS files to get this working just right for you project.
+With that said, until I can resolve [issue #26](https://github.com/mhulse/jquery-megakrill/issues/26), you’ll want to combine/modify the [packaged](https://github.com/mhulse/jquery-megakrill/blob/gh-pages/megakrill/jquery.megakrill.css) and [demo](https://github.com/mhulse/jquery-megakrill/blob/gh-pages/demo/demo.css) page’s CSS files to get this working just right for you project.
 
 ### Javascript:
 
@@ -169,7 +169,7 @@ When a build is ready for a version bump ...
 
 ### Update:
 
-When finished, push your changes back to GitHub and submit a pull request.
+When finished, push your changes back to GitHub and submit a pull request …
 
 ## Contributing
 
