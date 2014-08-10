@@ -3,15 +3,15 @@
   "name": "megakrill",
   "description": "Compact navigation for mobile devices and responsive layouts!",
   "version": "1.1.0",
-  "homepage": "https://github.com/registerguard/jquery-megakrill",
+  "homepage": "https://github.com/mhulse/jquery-megakrill",
   "main": "jquery.megakrill.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/registerguard/jquery-megakrill.git"
+    "url": "git://github.com/mhulse/jquery-megakrill.git"
   },
   "author": {
     "name": "Micky Hulse",
-    "url": "http://hulse.me"
+    "url": "http://mky.io"
   },
   "keywords": [
     "html5",
@@ -25,7 +25,6 @@
       "url": "http://www.apache.org/licenses/LICENSE-2.0"
     }
   ],
-  "dependencies": {},
   "devDependencies": {
     "grunt": "0.4.0rc7",
     "grunt-contrib-jshint": "0.1.1rc6",
@@ -35,5 +34,8 @@
     "grunt-contrib-mincss": "0.4.0rc7",
     "grunt-contrib-clean": "0.4.0rc6",
     "grunt-contrib-copy": "0.4.0rc7"
+  },
+  "scripts": {
+    "default": "grunt"
   }
 }
