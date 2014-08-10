@@ -23,7 +23,7 @@
 	/**
 	 * Function-level strict mode syntax.
 	 *
-	 * @see rgne.ws/XcZgn8
+	 * @see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions_and_function_scope/Strict_mode
 	 */
 	
 	'use strict';
@@ -37,7 +37,7 @@
 	/**
 	 * Javascript console.
 	 *
-	 * @see rgne.ws/12p2bvl
+	 * @see http://www.paulirish.com/2009/log-a-lightweight-wrapper-for-consolelog/
 	 */
 	
 	var console = window.console || { log : function() {}, warn : function() {} },
@@ -229,7 +229,7 @@
 					// Remove generated HTML:
 					//----------------------------------
 					
-					data.wrap.remove(); // All bound events and jQuery data associated with the elements are removed: rgne.ws/LqMnF5
+					data.wrap.remove(); // All bound events and jQuery data associated with the elements are removed: http://api.jquery.com/remove/
 					
 					//----------------------------------
 					// Remove data from target:
@@ -495,14 +495,14 @@
 			// Handle event type:
 			//----------------------------------
 			
-			if ( ! e.handled) { // rgne.ws/Ny7oxk
+			if ( ! e.handled) { // http://stackoverflow.com/questions/11548862/when-touching-html-button-on-iphone-the-href-occasionally-adds-to-the-url-wh
 				
 				//----------------------------------
 				// Initialize:
 				//----------------------------------
 				
 				$this   = $(this);
-				toggled = $this.data(constants.NS + '.toggled'); // rgne.ws/PX7b8K
+				toggled = $this.data(constants.NS + '.toggled'); // http://stackoverflow.com/questions/3841788/how-to-use-toggle-event-with-live/3842172#3842172
 				
 				//----------------------------------
 				// Toggle state:
@@ -641,7 +641,7 @@
 	 * Boilerplate plugin logic.
 	 *
 	 * @constructor
-	 * @see rgne.ws/OvKpPc
+	 * @see http://learn.jquery.com/plugins/
 	 * @type { function }
 	 * @param { string } method String method identifier.
 	 * @return { method } Calls plugin method with supplied params.
@@ -659,7 +659,7 @@
 			
 		} else {
 			
-			$.error('jQuery.' + constants.NS + ' thinks that ' + method + ' doesn\'t exist'); // Should I override? rgne.ws/MwgkP8
+			$.error('jQuery.' + constants.NS + ' thinks that ' + method + ' doesn\'t exist'); // Should I override? http://api.jquery.com/jQuery.error/
 			
 		}
 		
@@ -725,6 +725,6 @@
 	 * @type { object }
 	 */
 	
-	$.fn[constants.NS].defaults = settings.external; // rgne.ws/Mxifnq
+	$.fn[constants.NS].defaults = settings.external; // http://stackoverflow.com/questions/11306375/plugin-authoring-how-to-allow-myplugin-defaults-key-value
 	
 }(jQuery, window, document));

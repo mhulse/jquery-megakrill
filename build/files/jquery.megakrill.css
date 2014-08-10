@@ -48,7 +48,7 @@
 	height: 49px;
 	float: right;
 	display: inline;
-	_overflow: hidden; /* rgne.ws/KMrbW3 */
+	_overflow: hidden; /* http://haslayout.net/css/Expanding-Height-Bug */
 }
 	.mk-toggle a {
 		line-height: 1;
@@ -60,7 +60,7 @@
 		height: 100%;
 		display: block;
 		overflow: hidden;
-		/* rgne.ws/SHv2bc */
+		/* http://stackoverflow.com/questions/5348092/prevent-default-press-but-not-default-drag-in-ios-mobilesafari */
 		-webkit-user-select: none;
 		-webkit-touch-callout: none;
 		-webkit-tap-highlight-color: transparent;
@@ -88,7 +88,7 @@
 	float: left;
 	display: inline;
 	clear: both;
-	*clear: none; /* rgne.ws/MrnTJt */
+	*clear: none; /* http://css.2040035.n2.nabble.com/Float-100-width-do-I-need-clear-both-td7580099.html */
 }
 	.demo-li {
 		width: 100%;
@@ -96,7 +96,7 @@
 		display: inline;
 	}
 	.demo-a {
-		_width: 100%; /* rgne.ws/Z9RSis */
+		_width: 100%; /* https://github.com/mhulse/jquery-megakrill/issues/16 */
 		display: block;
 	}
 
@@ -137,12 +137,13 @@
 **--------------------------------------------------------------------------
 **
 ** Retina display at < 1005px width:
-** rgne.ws/M1CLgG
+** http://css.2040035.n2.nabble.com/A-few-question-about-this-media-query-for-retina-display-td7580107.html
 **
 **--------------------------------------------------------------------------
 */
 
-@media /* https://github.com/GoalSmashers/clean-css/issues/66 */
+/* https://github.com/GoalSmashers/clean-css/issues/66 */
+@media 
 only screen and (max-width: 1004px) and (min--moz-device-pixel-ratio: 1.5),
 only screen and (max-width: 1004px) and (-moz-min-device-pixel-ratio: 1.5),
 only screen and (max-width: 1004px) and (-o-min-device-pixel-ratio: 3/2),
@@ -150,7 +151,7 @@ only screen and (max-width: 1004px) and (-webkit-min-device-pixel-ratio: 1.5),
 only screen and (max-width: 1004px) and (min-device-pixel-ratio: 1.5),
 only screen and (max-width: 1004px) and (min-resolution: 1.5dppx) {
 	
-	/* @BUG: https://github.com/registerguard/jquery-megakrill/issues/14 */
+	/* @BUG: https://github.com/mhulse/jquery-megakrill/issues/14 */
 	
 	/*
 	**----------------------------------
