@@ -1,0 +1,19 @@
+{
+  "name": "megakrill",
+  "version": "1.2.0",
+  "main": [
+    "./megakrill/jquery.megakrill.js"
+    "./megakrill/jquery.megakrill.css"
+  ],
+  "ignore": [
+    "build",
+    "demo",
+    "**/.*",
+    "**/*.md",
+    "**/*.json"
+  ],
+  "keywords": [
+    "jquery",
+    "javascript"
+  ]
+}

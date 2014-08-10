@@ -13,7 +13,7 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,su
 **----------------------------------
 */
 
-.clear { *zoom: 1; } .clear:before, .clear:after { content: ""; display: table; } .clear:after { clear: both; }
+.clear:before, .clear:after { content: " "; display: table; } .clear:after { clear: both; } .clear { *zoom: 1; }
 
 /*
 **----------------------------------
