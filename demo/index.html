@@ -8,32 +8,18 @@
 	
 	<meta charset="utf-8">
 	
-	<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1"> <!-- Use this server side: h5bp.com/i/378 -->
+	<meta http-equiv="x-ua-compatible" content="chrome=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	
 	<title>jQuery MegaKrill demo</title>
 	
-	<meta name="viewport" content="width=device-width, initial-scale=1"> <!-- rgne.ws/MOkRAX -->
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	
-	<!-- rgne.ws/WnP50T -->
-	<script>document.documentElement.className=document.documentElement.className.replace(/\bno-js\b/,'js')</script>
-	
-	<link rel="stylesheet" href="demo.css">
+	<script>/*! https://gist.github.com/mhulse/4704893 */!function(e){e.documentElement.className=e.documentElement.className.replace(/\bno-js\b/,"js")}(document);</script>
 	
 	<link rel="stylesheet" href="../megakrill/jquery.megakrill.min.css">
+	<link rel="stylesheet" href="demo.css">
 	
-	<style>
-		<!--
-			/* Embedded styles here... */
-		-->
-	</style>
+	<script src="plugins/respond.min.js"></script>
 	
-	<!-- rgne.ws/PV8KUu -->
-	<!--[if (lt IE 9) & (!IEMobile)]>
-		<script src="plugins/respond.min.js"></script>
-	<![endif]-->
-	
-	<!-- rgne.ws/Orh5cv -->
 	<!--[if lt IE 9]>
 		<script src="plugins/html5shiv.js"></script>
 	<![endif]-->
@@ -189,26 +175,19 @@
 		
 	</div> <!-- /.container -->
 	
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="../megakrill/jquery.megakrill.min.js"></script>
 	
 	<script>
-		<!--
-			
-			$(document).ready(function() {
-				
-				$nav = $('#demo');
-				
-				$nav.megakrill({
-					//clone       : false,
-					cloneRemove : 'li > div',
-					cloneId     : false
-				});
-				//$nav.megakrill('destroy');
-				
+		$(document).ready(function() {
+			$nav = $('#demo');
+			$nav.megakrill({
+				//clone       : false,
+				cloneRemove : 'li > div',
+				cloneId     : false
 			});
-			
-		//-->
+			//$nav.megakrill('destroy');
+		});
 	</script>
 	
 </body>

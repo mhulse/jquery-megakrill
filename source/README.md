@@ -8,5 +8,5 @@ $ npm update
 # Build:
 $ grunt
 # ... or:
-$ npm run default
+$ npm run grunt
 ```

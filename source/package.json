@@ -4,7 +4,6 @@
   "description": "Compact navigation for mobile devices and responsive layouts!",
   "version": "1.1.0",
   "homepage": "https://github.com/mhulse/jquery-megakrill",
-  "main": "jquery.megakrill.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/mhulse/jquery-megakrill.git"
@@ -26,16 +25,19 @@
     }
   ],
   "devDependencies": {
-    "grunt": "0.4.0rc7",
-    "grunt-contrib-jshint": "0.1.1rc6",
-    "grunt-contrib-nodeunit": "0.1.2rc6",
-    "grunt-contrib-uglify": "0.1.1rc6",
-    "grunt-contrib-concat": "0.1.2rc6",
-    "grunt-contrib-mincss": "0.4.0rc7",
-    "grunt-contrib-clean": "0.4.0rc6",
-    "grunt-contrib-copy": "0.4.0rc7"
+    "grunt": "~0",
+    "grunt-cli": "~0",
+    "grunt-contrib-watch": "~0",
+    "grunt-contrib-jshint": "~0",
+    "grunt-contrib-clean": "~0",
+    "grunt-contrib-uglify": "~0",
+    "grunt-contrib-cssmin": "~0",
+    "grunt-contrib-concat": "~0",
+    "grunt-contrib-copy": "~0"
   },
   "scripts": {
-    "default": "grunt"
+    "watch": "grunt watch",
+    "init": "grunt init",
+    "grunt": "grunt"
   }
 }
