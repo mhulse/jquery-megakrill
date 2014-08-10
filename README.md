@@ -85,16 +85,14 @@ Option | Description | Default
 
 ## Links
 
-Related repositories:
+### Related repositories:
 
 1. [jQuery MegaWhale](https://github.com/mhulse/jquery-megawhale)
 1. [jQuery Mega demos!](https://github.com/mhulse/jquery-mega-demos)
 
-In the wild:
+### In the wild:
 
-This code was originally developed for:
-
-* [The Register-Guard](http://registerguard.com)
+This code was originally developed for [The Register-Guard](http://registerguard.com).
 
 ## Development
 
@@ -154,14 +152,6 @@ build/files/jquery.megakrill.js
 build/files/jquery.megakrill.css
 ```
 
-### Update:
-
-When finished, push your changes back to GitHub and submit a pull request.
-
-## Contributing
-
-Please read the [CONTRIBUTING.md](https://github.com/mhulse/jquery-megakrill/blob/gh-pages/CONTRIBUTING.md).
-
 ### Bumping the version:
 
 When a build is ready for a version bump ...
@@ -176,6 +166,14 @@ When a build is ready for a version bump ...
 1. Click "Publish release".
 
 **Note:** MegaKrill uses [Semantic Versioning](http://semver.org/).
+
+### Update:
+
+When finished, push your changes back to GitHub and submit a pull request.
+
+## Contributing
+
+Please read the [CONTRIBUTING.md](https://github.com/mhulse/jquery-megakrill/blob/gh-pages/CONTRIBUTING.md).
 
 ## Feedback
 
@@ -204,6 +202,5 @@ Licensed under the Apache License, Version 2.0 (the “License”); you may not 
 [http://www.apache.org/licenses/LICENSE-2.0](http://www.apache.org/licenses/LICENSE-2.0)
 
 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an “AS IS” BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
-
 
 <img width="20" height="20" align="absmiddle" src="https://github.global.ssl.fastly.net/images/icons/emoji/octocat.png" alt=":octocat:" title=":octocat:" class="emoji">
