@@ -81,7 +81,7 @@ Option | Description | Default
 `onBeforeShow` | Before reveal animation begins. | `$.noop`
 `onShow` | After reveal animation ends. | `$.noop`
 `onBeforeHide` | Before hide animation begins. | `$.noop`
-`onHide` | After hide animation ends. | `$.noop`## Contributing
+`onHide` | After hide animation ends. | `$.noop`
 
 ## Links
 
