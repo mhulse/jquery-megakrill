@@ -10,7 +10,7 @@ Compact navigation for mobile devices and responsive layouts.
 
 | Click or scan: |
 | :-: | :-: |
-| [![qr code](http://chart.apis.google.com/chart?cht=qr&chl=http://mky.io/grunt-html-boiler/dev/&chs=240x240)](http://mky.io/grunt-html-boiler/dev/) |
+| [![qr code](http://chart.apis.google.com/chart?cht=qr&chl=http://mhulse.github.io/jquery-megakrill/demo/&chs=240x240)](http://mhulse.github.io/jquery-megakrill/demo/) |
 | Build: `$ grunt` or `$ npm run grunt` |
 
 Resize the browser window to see the plugin(s) in action (Firefox 15+ users, check out [Responsive Design View](https://developer.mozilla.org/en-US/docs/Tools/Responsive_Design_View)).
