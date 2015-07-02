@@ -22,7 +22,9 @@ article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,su
 */
 
 body { font-family: Arial, sans-serif; } /* Serif: Cambria, Georgia, serif; */
-
+.notification.viewport {
+	display: none;
+}
 .container { margin: 10px; }
 
 header { position: relative; }
@@ -63,6 +65,14 @@ h1 {
 @media only screen and (min-width: 1005px) {
 	
 	.container { width: 980px; }
+
+	.notification.viewport {
+		display: block;
+		border: 1px solid rgb(226, 182, 10);
+		background: rgba(255, 215, 0, 0.5);
+		padding: .5em;
+		margin-bottom: 1.5em;
+	}
 	
 	nav {
 		min-height: auto;
